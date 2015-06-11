@@ -1,0 +1,6 @@
+@CHARSET "UTF-8";
+
+	@IMPORT url("father.css"); /* 상속 */
+	.trClass{border: 1px solid black; height: 50px} /* 색상도 마우스 갖다 대면 팔레트가 뜸 */
+	.tdColorClass{border: 1px solid black; text-align: center; background-color: #20f04f; color: #fd0241; width: 150px;}
+	.tdCenterClass{border: 1px solid black; text-align: center;}
