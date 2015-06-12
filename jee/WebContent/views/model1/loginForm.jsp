@@ -8,7 +8,7 @@
 </head>
 <body>
 <div>
-	<form action="login.jsp">
+	<form action="login.jsp" method="post">
 		<table style="border : 1px solid black; border-collapse: collapse;">
 			<tr style="border : 1px solid black;">
 				<td style="border : 1px solid black;">ID : </td>

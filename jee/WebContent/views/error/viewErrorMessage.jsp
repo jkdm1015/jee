@@ -10,6 +10,6 @@
 <body>
 	에러타입 : <%=exception.getClass().getName() %>
 	에러 메시지 : <%=exception.getMessage() %> <br />
-	<img src=<%=request.getContextPath() %>/images/404error.jpg width="99%" height="99%" />
+	<img src=<%=request.getContextPath() %>/images/error/400error.jpg width="60%"/>
 </body>
 </html>
