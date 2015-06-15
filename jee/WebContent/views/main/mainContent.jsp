@@ -13,7 +13,7 @@
 	
 		
 			<section class="content">
-				<table>
+				<table align="center">
 					<tr style="height: 50px">
 						<td><a href="#">공지</a></td>
 						<td><a href="#">자유</a></td>
@@ -23,7 +23,7 @@
 					</tr>
 				</table>
 				<br /><br /><br /><br />
-				<table>
+				<table align="center">
 					<tr style="height: 50px">
 						<td>신간</td>
 					</tr>
@@ -32,7 +32,7 @@
 					</tr>
 				</table>
 				<br /><br /><br /><br />
-				<table>
+				<table align="center">
 					<tr style="height: 50px">
 						<td>베스트</td>
 					</tr>

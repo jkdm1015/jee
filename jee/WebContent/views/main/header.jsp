@@ -12,13 +12,22 @@
 	</div>
 	<div class="clear"></div>
 	<nav id="topMenu">
-		<ul>
+		<table id="noneT" align="center" style="width: 80%; height: 50px">
+			<tr>
+				<td><a href="#">HOME</a></td>
+				<td><a href="#">자료검색</a></td>
+				<td><a href="#">신청/예약</a></td>
+				<td><a href="#">게시판</a></td>
+				<td><a href="#">통계</a></td>
+			</tr>
+		</table>
+		<!-- <ul>
 			<li><a href="#">HOME</a></li>
 			<li><a href="#">자료검색</a></li>
 			<li><a href="#">신청/예약</a></li>
 			<li><a href="#">게시판</a></li>
 			<li><a href="#">통계</a></li>
-		</ul>
+		</ul> -->
 	</nav>
 </header>
 <div class="clear"></div>

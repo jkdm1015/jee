@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.homepage.web.services.HelloServices;
-import com.homepage.web.servicesimpl.HelloServicesImpl;
+import com.homepage.web.servicesimpl.HelloServiceImpl;
 import com.sun.xml.internal.ws.api.streaming.XMLStreamReaderFactory.Default;
 
 /**
@@ -56,8 +56,8 @@ public class HelloController extends HttpServlet {
 	}
 
 	private void goHello(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-		HelloServices hs = new HelloServicesImpl();
+		HttpServletResponse response) throws ServletException, IOException {
+		HelloServices hs = new HelloServiceImpl();
 		String msg = hs.greet();
 		String name = request.getParameter("name");
 		request.setAttribute("name", msg + name);

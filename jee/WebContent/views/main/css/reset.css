@@ -98,7 +98,7 @@ legend {
  
 table {
     border-collapse: collapse;  	/* 테이블 사이에 간격을 주지 마라 */
-    border-spacing: 0
+    border-spacing: 0;
 }
  
 input::-ms-clear {
