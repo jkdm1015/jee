@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8" />
-	<title>카우프 지수 구하기</title>
+	<title>회원가입</title>
 	<!-- <style>
 		@IMPORT url("../../css/model2/kaup.css");
 	</style> -->
@@ -31,8 +31,8 @@
 					<td> <input type="text" id="age" name="age" placeholder="나이" /> </td>
 				</tr>
 				<tr>
-					<td>주소</td>
-					<td> <input type="text" id="address" name="address" placeholder="주소" /> </td>
+					<td>이메일</td>
+					<td> <input type="text" id="email" name="email" placeholder="E-mail을 입력하세요" /> </td>
 				</tr>
 				<tr>
 					<td colspan="2"> <input type="submit" value="회원가입"/> </td>

@@ -2,7 +2,9 @@ package com.homepage.web.controllers;
 
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
@@ -12,19 +14,41 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.homepage.web.beans.MemberBean;
+import com.homepage.member.beans.MemberBean;
 import com.homepage.web.services.MemberService;
 import com.homepage.web.servicesimpl.MemberServiceImpl;
 
 /**
  * Servlet implementation class MemberController
  */
-@WebServlet({"/model2/join.do","/model2/login.do"})
+@WebServlet({"/model2/join.do","/model2/login.do",
+	"/model2/searchAllMembers.do"})
 public class MemberController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	MemberBean bean = new MemberBean();
-	MemberService service = new MemberServiceImpl();
+	MemberService service = MemberServiceImpl.getInstance();
  
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		RequestDispatcher dispatcher;
+		String path = request.getServletPath();
+		
+		switch (path) {
+		case "/model2/searchAllMembers.do":
+			List<MemberBean> list = new ArrayList<MemberBean>();
+			list = service.getList();
+			request.setAttribute("memberList", list);
+			dispatcher = request.getRequestDispatcher("/views/model2/memberList.jsp");
+			dispatcher.forward(request, response);
+			break;
+
+		default:
+			break;
+		}
+			
+		
+	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		
@@ -40,17 +64,24 @@ public class MemberController extends HttpServlet {
 			String name = request.getParameter("name");
 			String id = request.getParameter("id");
 			String password = request.getParameter("password");
-			Integer age = Integer.parseInt(request.getParameter("age"));
-			String address = request.getParameter("address");
+			String age = request.getParameter("age");
+			String email = request.getParameter("email");
 			
 			bean.setName(name);
 			bean.setId(id);
 			bean.setPassword(password);
 			bean.setAge(age);
-			bean.setAddress(address);
+			bean.setEmail(email);
 			
-			service.join(id, password, name, age, address);
-			dispatcher = request.getRequestDispatcher("/views/model2/memberForm.jsp");
+			int result = service.join(bean);
+			String joinMsg = "";
+			if(result != 0){
+				joinMsg = name + " 님 환영합니다";
+			}else{
+				joinMsg = "회원가입에 실패하셨습니다.";
+			}
+			request.setAttribute("msg", joinMsg);
+			dispatcher = request.getRequestDispatcher("/views/model2/mainForm.jsp");
 			dispatcher.forward(request, response);
 			break;
 			
@@ -64,7 +95,6 @@ public class MemberController extends HttpServlet {
 				request.setAttribute("password", bean.getPassword());
 				request.setAttribute("name", bean.getName());
 				request.setAttribute("age", bean.getAge());
-				request.setAttribute("address", bean.getAddress());
 				dispatcher = request.getRequestDispatcher("/views/model2/member.jsp");
 				dispatcher.forward(request, response);
 			
@@ -76,6 +106,7 @@ public class MemberController extends HttpServlet {
 			
 			
 			break;
+		
 
 		default:
 			break;
